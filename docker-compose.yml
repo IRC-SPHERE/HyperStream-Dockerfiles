@@ -1,0 +1,15 @@
+version: '2'
+services:
+  hyperstream:
+    build: hyperstream
+    links:
+      - "hyperstream-mongo:mongo"
+#     - "hyperstream-mqtt:mqtt"
+  hyperstream-mongo:
+    build: hyperstream-mongo
+# hyperstream-mqtt:
+#   image: "toke/mosquitto"
+# hyperstream-viewer:
+#   build: hyperstreamviewer
+#   ports:
+#     - "5000:5000"
