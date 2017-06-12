@@ -35,8 +35,11 @@ ENV PATH $HOME/.local/bin:$PATH
 
 WORKDIR $HYPERSTREAM_DIR
 
-# TODO add another config file for docker
+# Configure mongo connection
 RUN sed -i -e 's/localhost/hyperstream-mongo/g' hyperstream_config.json
+
+# Configure MQTT connection
+RUN sed -i -e 's/mqtt_ip = "127.0.0.1"/mqtt_ip = "hyperstream-mqtt"/g' tests/helpers.py
 
 # Test HyperStream
 RUN python -c 'from hyperstream import HyperStream'
