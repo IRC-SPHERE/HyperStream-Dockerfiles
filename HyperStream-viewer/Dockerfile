@@ -11,8 +11,10 @@ RUN apt-get update \
 RUN apt-get install -y \
     git \
     python \
-    python-pip
-
+    python-pip \
+    nodejs \
+    nodejs-legacy \
+    npm
 
 ENV SHELL /bin/bash
 ENV HYPERSTREAM_USER jovyan
@@ -25,17 +27,23 @@ RUN useradd -m -s $SHELL $HYPERSTREAM_USER
 
 RUN mkdir -p $HYPERSTREAM_DIR \
   && chown $HYPERSTREAM_USER $HYPERSTREAM_DIR
+
 USER $HYPERSTREAM_USER
 
-# TODO: clone with depth level 1 and by tag not the latest commit
-RUN git clone https://github.com/IRC-SPHERE/HyperStreamViewer.git $HYPERSTREAM_DIR
+RUN git clone --depth=1 https://github.com/IRC-SPHERE/HyperStreamViewer.git $HYPERSTREAM_DIR
 RUN pip install --user -r $HYPERSTREAM_DIR/requirements.txt
 
-# Run HyperStreamViewer
-WORKDIR $HYPERSTREAM_DIR
+USER root
+RUN npm -g install bower
+USER $HYPERSTREAM_USER
 
+WORKDIR $HYPERSTREAM_DIR
+RUN bower update
+
+# Configure mongo host
 RUN sed -i -e 's/localhost/hyperstream-mongo/g' hyperstream_config.json
 
 EXPOSE 5000
 
+# Run HyperStreamViewer
 ENTRYPOINT python server.py
