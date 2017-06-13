@@ -27,8 +27,7 @@ RUN mkdir -p $HYPERSTREAM_DIR \
   && chown $HYPERSTREAM_USER $HYPERSTREAM_DIR
 USER $HYPERSTREAM_USER
 
-# TODO: clone with depth level 1 and by tag not the latest commit
-RUN git clone https://github.com/IRC-SPHERE/HyperStream.git $HYPERSTREAM_DIR
+RUN git clone --depth=1 https://github.com/IRC-SPHERE/HyperStream.git $HYPERSTREAM_DIR
 RUN pip install --user -r $HYPERSTREAM_DIR/requirements.txt
 
 ENV PATH $HOME/.local/bin:$PATH
@@ -44,5 +43,6 @@ RUN sed -i -e 's/mqtt_ip = "127.0.0.1"/mqtt_ip = "hyperstream-mqtt"/g' tests/hel
 # Test HyperStream
 RUN python -c 'from hyperstream import HyperStream'
 
+# TODO: Run hyperstream rather than test it on container bootup
 ENTRYPOINT nosetests --with-coverage
 #ENTRYPOINT /bin/bash
