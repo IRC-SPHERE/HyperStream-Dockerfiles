@@ -41,6 +41,7 @@ WORKDIR $HYPERSTREAM_DIR
 RUN bower update
 
 # Configure mongo host
+RUN ./config_local.sh
 RUN sed -i -e 's/localhost/hyperstream-mongo/g' hyperstream_config.json
 
 EXPOSE 5000
