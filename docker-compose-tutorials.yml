@@ -1,0 +1,17 @@
+version: '2'
+services:
+  hyperstream:
+    build: HyperStream-tutorials
+    links:
+      - "hyperstream-mongo:mongo"
+      - "hyperstream-mqtt:mqtt"
+    ports:
+      - "8888:8888"
+  hyperstream-mongo:
+    build: HyperStream-mongo
+  hyperstream-mqtt:
+    image: "toke/mosquitto"
+  hyperstream-viewer:
+    build: HyperStream-viewer
+    ports:
+      - "5000:5000"

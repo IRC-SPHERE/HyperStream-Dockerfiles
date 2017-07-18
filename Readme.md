@@ -18,6 +18,14 @@ Finally, run the bundle with:
 docker-compose up
 ```
 
-wait for the containers to start and point your browser to [`127.0.0.1:5000`](127.0.0.1:5000) to see the HyperStreamViewer up and runnign.
+wait for the containers to start and point your browser to [`127.0.0.1:5000`](http://127.0.0.1:5000) to see the HyperStreamViewer up and runnign.
 
 To close the containers press `<Ctrl>-C` in the terminal running the containers.
+
+## HyperStream tutorials ##
+You can run HyperStream tutorials with:
+```
+docker-compose -f docker-compose-tutorials.yml -p hyperstream-tutorials up
+```
+
+and then open Jupyter ntoebook on [`0.0.0.0:8888`](http://0.0.0.0:8888/tree) to view the tutorials.
