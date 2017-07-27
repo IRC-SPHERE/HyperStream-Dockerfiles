@@ -13,16 +13,16 @@ RUN pip install --upgrade pip &&\
   pip install --user ipython[all] jupyter &&\
   pip install --user watermark
 
-RUN git fetch origin tutorials:tutorials &&\
-  git stash &&\
-  git checkout tutorials &&\
-  git stash apply
+# RUN git fetch origin tutorials:tutorials &&\
+#   git stash &&\
+#   git checkout tutorials &&\
+#   git stash apply
 
 # Configure mongo connection
 RUN sed -i -e 's/localhost/hyperstream-mongo/g' examples/hyperstream_config.json
 
 # Configure MQTT connection
-RUN sed -i -e 's/mqtt_ip = "127.0.0.1"/mqtt_ip = "hyperstream-mqtt"/g' tests/helpers.py
+# RUN sed -i -e 's/mqtt_ip = "127.0.0.1"/mqtt_ip = "hyperstream-mqtt"/g' tests/helpers.py
 
 # Start Jupyter Notebook
 EXPOSE 8888
