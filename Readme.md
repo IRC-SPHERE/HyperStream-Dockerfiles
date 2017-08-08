@@ -18,7 +18,7 @@ Finally, run the bundle with:
 docker-compose up
 ```
 
-wait for the containers to start and point your browser to [`127.0.0.1:5000`](http://127.0.0.1:5000) to see the HyperStreamViewer up and runnign.
+wait for the containers to start and point your browser to [`127.0.0.1:5000`](http://127.0.0.1:5000) to see the HyperStreamViewer up and running.
 
 To close the containers press `<Ctrl>-C` in the terminal running the containers.
 
