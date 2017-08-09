@@ -28,4 +28,10 @@ You can run HyperStream tutorials with:
 docker-compose -f docker-compose-tutorials.yml -p hyperstream-tutorials up
 ```
 
-and then open Jupyter ntoebook on [`0.0.0.0:8888`](http://0.0.0.0:8888/tree) to view the tutorials.
+Then, in the same terminal there will be a line with an url that point to the tutorials. Just use the full url in a webbrowser.
+
+```bash
+hyperstream_1         |     Copy/paste this URL into your browser when you connect for the first time,
+hyperstream_1         |     to login with a token:
+hyperstream_1         |         http://0.0.0.0:8888/?token=d7ce9aed098ff2881433bd3ad53979b82979cf6d99e6f598
+```
