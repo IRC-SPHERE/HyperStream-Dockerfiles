@@ -30,4 +30,4 @@ USER $HYPERSTREAM_USER
 EXPOSE 27017
 
 #RUN service mongod start
-ENTRYPOINT /usr/bin/mongod --dbpath "$HYPERSTREAM_DIR"
+ENTRYPOINT /usr/bin/mongod --smallfiles --dbpath "$HYPERSTREAM_DIR"
