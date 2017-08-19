@@ -1,4 +1,4 @@
-FROM ircsphere/hyperstream
+FROM ircsphere/hyperstream:0.3.7
 
 MAINTAINER Kacper Sokol <ks1591@bristol.ac.uk>
 
@@ -6,8 +6,8 @@ USER root
 RUN apt-get install -y python-numpy
 USER $HYPERSTREAM_USER
 
-RUN git config --global user.email "docker@docker" &&\
-  git config --global user.name "Docker"
+#RUN git config --global user.email "docker@docker" &&\
+  #git config --global user.name "Docker"
 
 RUN pip install --upgrade pip &&\
   pip install --user ipython[all] jupyter &&\
