@@ -7,6 +7,8 @@ services:
       - "hyperstream-mqtt:mqtt"
   hyperstream-mongo:
     build: HyperStream-mongo
+#        volumes:
+#      - ~/hyperstream_mongodb:/home/jovyan/hyperstream
   hyperstream-mqtt:
     image: "toke/mosquitto"
   hyperstream-viewer:
