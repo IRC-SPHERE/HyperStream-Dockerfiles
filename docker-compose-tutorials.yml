@@ -8,7 +8,10 @@ services:
       - "8888:8888"
   hyperstream-mongo:
     build: HyperStream-mongo
+#    volumes:
+#      - ~/hyperstream_mongodb:/home/jovyan/hyperstream
   hyperstream-viewer:
     build: HyperStream-viewer
     ports:
       - "5000:5000"
+

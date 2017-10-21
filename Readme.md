@@ -35,3 +35,10 @@ hyperstream_1         |     Copy/paste this URL into your browser when you
 hyperstream_1         |     to login with a token:
 hyperstream_1         |         http://0.0.0.0:8888/?token=d7ce9aed098ff2881433bd3ad53979b82979cf6d99e6f598
 ```
+
+## MongoDB persistent storage ##
+I you want to store MongoDB data on your host machine (in `~/hyperstream_mongodb`) you can uncomment the following two lines in the docker compose file:
+```
+#        volumes:
+#      - ~/hyperstream_mongodb:/home/jovyan/hyperstream
+```
